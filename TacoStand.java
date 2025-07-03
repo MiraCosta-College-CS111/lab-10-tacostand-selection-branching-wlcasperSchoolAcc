@@ -2,6 +2,10 @@ public class TacoStand
 {
     /* CONSTANT VARIABLES */
 	public static final String BAR = "----------------------------------------";
+	public static final double ASADA_COST = 2.5;
+	public static final double POLLO_COST = 1.75;
+	public static final double LENGUA_COST = 3.0;
+	public static final double ULTIMATE_COST = 18.0;
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -22,10 +26,10 @@ public class TacoStand
 	public static void printMenu()
 	{
 		System.out.println("Menu options:\n" + TacoStand.BAR);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, "Carne Asada (Steak)", 2.5);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, "Pollo Asado (Chicken)", 1.75);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, "Lengua (Beef Tongue)", 3.0);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, "Ultimate Taco", 18.0);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, "Carne Asada (Steak)", ASADA_COST);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, "Pollo Asado (Chicken)", POLLO_COST);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, "Lengua (Beef Tongue)", LENGUA_COST);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, "Ultimate Taco", ULTIMATE_COST);
 		System.out.println(TacoStand.BAR);
 	}
 	
@@ -105,19 +109,19 @@ public class TacoStand
 		switch(tacoOption)
 		{
 			case 1:
-			TacoStand.totalFunds += numTacos * 2.5;
+			TacoStand.totalFunds += numTacos * ASADA_COST;
 			TacoStand.numAsada -= numTacos;
 			break;
 			case 2:
-			TacoStand.totalFunds += numTacos * 1.75;
+			TacoStand.totalFunds += numTacos * POLLO_COST;
 			TacoStand.numPollo -= numTacos;
 			break;
 			case 3:
-			TacoStand.totalFunds += numTacos * 3.0;
+			TacoStand.totalFunds += numTacos * LENGUA_COST;
 			TacoStand.numLengua -= numTacos;
 			break;
 			case 4:
-			TacoStand.totalFunds += numTacos * 18.0;
+			TacoStand.totalFunds += numTacos * ULTIMATE_COST;
 			TacoStand.numUltimate -= numTacos;
 			break;
 		}
