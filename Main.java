@@ -1,7 +1,7 @@
+// PARTNER NAME: Zhixun Wang
 // PARTNER NAME:
-// PARTNER NAME:
-// CS111 SECTION #:
-// DATE:
+// CS111 SECTION #: 1602
+// DATE: 7/3/2025
 
 public class Main
 {
@@ -67,8 +67,14 @@ public class Main
 		numTacosOrdered = UtilityBelt.readInt("Enter number of tacos you want> ", 1, 50);
 
 		//CALCULATION + OUTPUT SECTION
-		TacoStand.updateTotalFunds(option, numTacosOrdered);
-		Main.printConfirmation(numTacosOrdered);
+		Boolean areTacosAvailable = TacoStand.areTacosAvailable(option, numTacosOrdered);
+		if (areTacosAvailable == true){
+			TacoStand.updateTotalFunds(option, numTacosOrdered);
+			Main.printConfirmation(numTacosOrdered);
+		} else{
+			System.out.println("We don't have that many tacos, sorry! Try again :(");
+		}
+		
 	}
 
 	/**
@@ -78,7 +84,12 @@ public class Main
 	 */
 	public static void printConfirmation(int numTacos) //TODO: upgrade per documentation
 	{
+		String output = "";
 		System.out.println("Here you go, buen provecho!");
-		System.out.println("🌮");
+		for(int i=1; i<=numTacos; i++)
+		{
+			output += "🌮";
+		}
+		System.out.println(output+"\n");
 	}
 }

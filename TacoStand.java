@@ -75,13 +75,22 @@ public class TacoStand
 	    int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
 	    TacoStand.totalFunds -= budget;
+		if (totalFunds < 0)
+		{
+			return false;
+		} else 
+		{
+			TacoStand.numAsada += tacosEach;
+	   	    TacoStand.numPollo += tacosEach;
+	    	TacoStand.numLengua += tacosEach;
+	   		TacoStand.numUltimate += tacosEach;
+			return true;
+		}
+	    
 
-	    TacoStand.numAsada += tacosEach;
-	    TacoStand.numPollo += tacosEach;
-	    TacoStand.numLengua += tacosEach;
-	    TacoStand.numUltimate += tacosEach;
+		
 
-		return true;  //TODO: this is stubbed, replace this line with your actual code!
+		//return true;  TODO: this is stubbed, replace this line with your actual code! Done
 	}
 
 	/**
@@ -93,7 +102,27 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
-		//TODO: this is stubbed, replace this line with your actual code!
+		switch(tacoOption)
+		{
+			case 1:
+			TacoStand.totalFunds += numTacos * 2.5;
+			TacoStand.numAsada -= numTacos;
+			break;
+			case 2:
+			TacoStand.totalFunds += numTacos * 1.75;
+			TacoStand.numPollo -= numTacos;
+			break;
+			case 3:
+			TacoStand.totalFunds += numTacos * 3.0;
+			TacoStand.numLengua -= numTacos;
+			break;
+			case 4:
+			TacoStand.totalFunds += numTacos * 18.0;
+			TacoStand.numUltimate -= numTacos;
+			break;
+		}
+		
+		//TODO: this is stubbed, replace this line with your actual code! Done
 	}
 	
 	
@@ -107,6 +136,37 @@ public class TacoStand
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
 	{
-		return false; //TODO: this is stubbed, replace this line with your actual code!
+		switch(tacoOption)
+		{
+		case 1:
+			if(TacoStand.numAsada>= numTacos)
+			{
+				return true;
+			}
+			break;
+
+		case 2:
+			if(TacoStand.numPollo>= numTacos)
+			{
+				return true;
+			}
+			break;
+
+		case 3:
+			if(TacoStand.numLengua>= numTacos)
+			{
+				return true;
+			}
+			break;
+
+		case 4:
+			if(TacoStand.numUltimate>= numTacos)
+			{
+				return true;
+			}
+			break;
+
+		}
+		return false;
 	}
 }
